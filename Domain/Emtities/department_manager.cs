@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Emtities
 {
-    public class department_manager
+    public class Department_manager
     {
         public int EmployeeId { get; set; }
         public int DepartmentId { get; set; }

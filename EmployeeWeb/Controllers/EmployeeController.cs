@@ -8,8 +8,8 @@ namespace EmployeeWeb.Controllers
 {
     public class EmployeeController
     {
-        private EmployeeService _employeeService;
-        public EmployeeController(EmployeeService employeeService)
+        private IEmployeeService _employeeService;
+        public EmployeeController(IEmployeeService employeeService)
         {
             _employeeService = employeeService;
         }

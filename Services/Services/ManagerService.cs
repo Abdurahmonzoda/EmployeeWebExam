@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Services.Services
 {
-    public class ManagerService
+    public class ManagerService : IManagerService
     {
         private Context _context;
         public ManagerService(Context context)
@@ -34,19 +34,19 @@ namespace Services.Services
             }
         }
 
-        public async Task<Response<department_manager>> AddManager(department_manager manager)
+        public async Task<Response<Department_manager>> AddManager(Department_manager manager)
         {
             var connection = _context.CreateConnection();
             string sql = $"INSERT INTO department_manager (EmployeeId , DepartmentId , FromDate , ToDate , CurrentDepartment ) VALUES (@EmployeeId,@DepartmentId , @FromDate , @ToDate,@CurrentDepartment) ";
             try
             {
-                var result = await connection.ExecuteScalarAsync<department_manager>(sql, new { manager.EmployeeId, manager.DepartmentId, manager.FromDate, manager.ToDate, manager.CurrentDepartment });
+                var result = await connection.ExecuteScalarAsync<Department_manager>(sql, new { manager.EmployeeId, manager.DepartmentId, manager.FromDate, manager.ToDate, manager.CurrentDepartment });
                 manager = result;
-                return new Response<department_manager>(manager);
+                return new Response<Department_manager>(manager);
             }
             catch (Exception ex)
             {
-                return new Response<department_manager>(System.Net.HttpStatusCode.InternalServerError, ex.Message);
+                return new Response<Department_manager>(System.Net.HttpStatusCode.InternalServerError, ex.Message);
             }
         }
 

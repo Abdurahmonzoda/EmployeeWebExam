@@ -8,10 +8,12 @@ namespace EmployeeWeb.Controllers
 {
     public class DepartmentController
     {
-        private DepartmentService _departmentService;
-        public DepartmentController(DepartmentService departmentService)
+        private IDepartmentService _departmentService;
+        public DepartmentController(IDepartmentService departmentService)
         {
             _departmentService = departmentService;
+            
+            
         }
         [HttpGet("GetDepartments")]
         public async Task<Response<List<DepartmentDto>>> GetDepartments()

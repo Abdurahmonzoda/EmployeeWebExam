@@ -8,8 +8,8 @@ namespace EmployeeWeb.Controllers
 {
     public class ManagerController
     {
-        private ManagerService _managerService;
-        public ManagerController(ManagerService managerService)
+        private IManagerService _managerService;
+        public ManagerController(IManagerService managerService)
         {
             _managerService = managerService;
         }
@@ -19,7 +19,7 @@ namespace EmployeeWeb.Controllers
             return await _managerService.GetManagers();
         }
         [HttpPost("AddManager")]
-        public async Task<Response<department_manager>> AddManager(department_manager department)
+        public async Task<Response<Department_manager>> AddManager(Department_manager department)
         {
             return await _managerService.AddManager(department);
         }

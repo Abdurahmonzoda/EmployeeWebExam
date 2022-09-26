@@ -8,10 +8,13 @@ using Dapper;
 using Domail.Response;
 using Domain.Dto;
 using Domain.Emtities;
-using Services.DateContext; 
+using Services.DateContext;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Hosting;
+
 namespace Services.Services
 {
-    public class DepartmentService
+    public class DepartmentService : IDepartmentService 
     {
         private Context _context;
         public DepartmentService(Context context)
