@@ -6,7 +6,7 @@ using Services.Services;
 
 namespace EmployeeWeb.Controllers
 {
-    public class EmployeeController
+    public class EmployeeController : ControllerBase
     {
         private IEmployeeService _employeeService;
         public EmployeeController(IEmployeeService employeeService)
